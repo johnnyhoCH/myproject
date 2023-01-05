@@ -1,0 +1,78 @@
+{% extends "basepage.html" %}
+
+{% block pagetitle %}
+會員註冊
+{% endblock %}
+
+{% block css %}
+<link href="/static/css/contact.css" rel="stylesheet" >
+{% endblock%}
+
+{% block js %}
+
+	<script>
+		function CheckPwd(){
+			var p = document.getElementByName("pwd")[0].value;
+			var p2 = document.getElementByName("repwd")[0].value;
+			if (p == p2){
+				return true;
+				else{
+					alert("密碼配對有誤，請重新輸入");
+					return false;
+				}
+			}
+		}
+	</script>
+{% endblock %}
+
+{% block maincontent %}
+
+	<div style="margin-top: 50px;"></div>
+
+	<div id="message">
+		<div id="login-form-wrap">
+		<h2 class="subject">會員註冊</h2>
+		<span style="color: red;">{{msg}}</span>
+		<form id="login-form" action="" method="post" onsubmit="return CheckPwd()" >
+			{% csrf_token %}
+			<p>
+				<input type="text" name="username" placeholder="請輸入姓名" required /><i class="validation"><span></span><span></span></i>
+			</p>
+
+			<p>
+				<input type="email" name="email" placeholder="請輸入Email" required /><i class="validation"><span></span><span></span></i>
+			</p>
+
+			<p>
+				<input type="password" name="pwd" placeholder="請輸入密碼" required /><i class="validation"><span></span><span></span></i>
+			</p>
+
+			<p>
+				<input type="password" name="repwd" placeholder="請再輸入一次密碼" required /><i class="validation"><span></span><span></span></i>
+			</p>
+
+			<p>請輸入性別: 
+				<input type="radio" name="sex" value="M" style="height:20px;" checked />男
+				<input type="radio" name="sex" value="F" style="height:20px;" />女
+			</p>
+
+			<p>
+				<input type="text" name="birthday" placeholder="請輸入生日(YYYY-MM-DD)" required /><i class="validation"><span></span><span></span></i>
+			</p>
+
+			<p>
+				<input type="text" name="address" placeholder="請輸入地址" required /><i class="validation"><span></span><span></span></i>
+			</p>
+
+			<p>
+				<input type="submit" value="Submit" style="margin-bottom: 20px;" />
+			</p>
+
+
+		</form>
+		</div>
+	</div>
+
+<div style="padding-bottom:100px; float:left;"></div>
+
+{% endblock %}

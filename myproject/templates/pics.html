@@ -1,0 +1,97 @@
+{% extends "basepage.html" %}
+
+{% block pagetitle %}
+Pics
+{% endblock %}
+
+{% block css %}
+<link href="/static/css/pics.css" rel="stylesheet" >
+
+<script>
+$(function(){
+			var i = 0;
+			var clone = $("#img1 #img li").first().clone();
+			$("#img1 #img").append(clone);
+			var size = $("#img1 #img li").size();
+			var t = setInterval(function(){
+				i++;
+				move();
+			},2000);
+
+			function move(){
+				if (i == size){
+					$("#imgbox #img1 #img").css({left:0});
+				i=1;
+			}
+				if (i == -1){
+					$("#imgbox #img1 #img").css({left:-(size-1)*915});
+				i = size-2;
+			}
+				$("#imgbox #img1 #img").stop().animate({left:-i*915},915);
+			}
+
+			$("#imgbox #img1 #img").hover(function(){
+				clearInterval(t);
+			},function(){
+				t = setInterval(function(){
+					i++;
+					move();
+				},2000);
+			});
+
+			$("#img1 .left").click(function(){
+				i--;
+				move();
+			});
+
+			$("#img1 .right").click(function(){
+				i++;
+				move();
+			});
+		});
+
+</script>
+{% endblock%}
+
+{% block maincontent %}
+
+<div style="padding-top: 50px;"></div>
+
+<div style="background-color: #14FDFE; width: 60%; margin:0 auto">
+	<span style="padding-left: 30%; font-size: 48px ; font-weight: 500; color:#E66812">GIVE U ALL!!</span>
+</div>
+
+<div style="padding-top: 50px;"></div>
+
+
+<div id="imgbox">
+
+	<div id="img1">
+		<ul id="img">
+
+			<li><img src="/static/images/passion.jpg"></li>
+			<li><img src="/static/images/R.jpg"></li>
+			<li><img src="/static/images/U.jpg"></li>
+			<li><img src="/static/images/F.jpg"></li>
+			<li><img src="/static/images/D.jpg"></li>
+
+
+		</ul>
+		
+
+			<div class="btn left">&laquo;</div>
+			<div class="btn right">&raquo;</div>
+		</div>
+
+		<div id="imgbox1">
+			
+			<a class="subitem" href="#"><img src="/static/images/see.jpg"></a>
+			<a class="subitem" href="#"><img src="/static/images/heard.jpg"></a>
+			<a class="subitem" href="#"><img src="/static/images/talk.jpg"></a>
+
+
+		</div>
+		
+	</div>
+
+{% endblock %}

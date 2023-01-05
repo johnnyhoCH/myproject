@@ -1,0 +1,119 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		{% block pagetitle %}
+		{% endblock %}
+
+	</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+	<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous">
+	</script>
+
+
+
+
+	<link href="/static/css/basepage.css" rel="stylesheet" >
+
+	<script>
+		
+		
+		$(function(){
+			$("#bannermenu li ul").hide();
+			$("#bannermenu li").hover(
+				function(){
+					$(this).find(".submenu").slideDown("fast");
+					$(this).find("a:first").addClass("active");
+				},function(){
+					$(this).find(".submenu").fadeOut("fast");
+					$(this).find("a").removeClass("active");
+			})
+		
+		});
+		
+	</script>
+
+	{% block css %}
+	{% endblock%}
+
+	{% block js %}
+	{% endblock %}
+		
+</head>
+<body>
+
+	<div id="wrapper">
+		
+		<div id="menu">
+
+			<div id="menu-top">
+				
+			</div>
+
+			<div id="menu-down">
+				
+				<img src="https://th.bing.com/th/id/OIP.js0kPc358_rDZXegWF1SAQHaDZ?w=296&h=160&c=7&r=0&o=5&dpr=1.5&pid=1.7" >
+
+				<div>
+					
+					<ul id="bannermenu">
+						
+						<a href="/aboutus"><li class="menutext">About</li></a>
+						<a href="/pics"><li class="menutext">Pics</li></a>
+						<a href="/news"><li class="menutext">News</li></a>
+						<a href="/contact"><li class="menutext">Contact</li></a>
+						<a href="/product"><li class="menutext">Shop</li></a>
+						<a href="#">
+							<li class="menutext">Cheerleaders&raquo;
+								<ul class="submenu" style="font-size: 16px;">
+									<a href="/player"><li>中信兄弟</li></a>
+									<a href="#"><li>樂天桃園</li></a>
+									<a href="#"><li>統一7-11獅</li></a>
+									<a href="#"><li>富邦悍將</li></a>
+									<a href="#"><li>味全龍</li></a>
+									<a href="#"><li>台鋼雄鷹</li></a>
+								</ul>
+							</li>
+						</a>
+						{% if request.session.isAlive %}
+							<a href="/photos"><li class="menutext">Upload</li></a>
+							<a href="/member"><li class="menutext">Member</li></a>
+							<a href="/myorder"><li class="menutext">MyOrder</li></a>
+							<a href="/logout"><li class="menutext">Logout</li></a>
+
+						{% else %}
+							<a href="/login"><li class="menutext">Login</li></a>
+							<a href="/register"><li class="menutext">Register</li></a>
+						{% endif %}
+					</ul>
+
+				</div>
+
+			</div>
+
+			<div id="ad">
+				<img src="https://www.cpbl.com.tw/files/file_pool/1/0m306607866927532877/2022%e5%86%a0%e8%bb%8d%e8%b3%bd_%e5%ae%98%e7%b6%b2banner_1920x270.png" >
+
+			</div>
+			
+		</div>
+
+		<div id="content">
+				{% block maincontent %}
+				{% endblock %}
+		</div>
+
+	</div>
+
+	
+	<div id="footer">
+		<span>COPYRIGHT ©2022 JOHNNY DESGIN.  ALL RIGHTS RESERVED.</span>
+	</div>
+
+
+
+
+</body>
+</html>

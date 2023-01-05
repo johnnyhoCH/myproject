@@ -1,0 +1,26 @@
+{% extends "basepage.html" %}
+
+{% block pagetitle %}
+購物車確認內容
+{% endblock %}
+
+{% block css %}
+<link href="/static/css/cart.css" rel="stylesheet" >
+{% endblock%}
+
+{% block maincontent %}
+
+	<div style="margin-top: 150px;"></div>
+	
+		<div id="maindiv" style="margin-left: 30%; background-color: white;">
+			<h1 class="title">訂單完成資訊</h1>
+			<p class="subject">非常感謝您的購買, 我們會盡快處裡您的訂單</p>
+			<p class="desc">親愛的<strong>{{name}}</strong>(先生/小姐),訂單已完成</p>
+			<p class="subject">訂單編號: <font color="#ff0000">{{orderid}}</font></p>
+			<p class="desc" style="text-decoration: underline;"><a href="/cart_order_check/?orderid={{orderid}}&custom_email={{email}}">訂單詳情</a></p>
+		</div>
+	
+
+
+<div style="float: left;padding-bottom:100px;"></div>
+{% endblock %}

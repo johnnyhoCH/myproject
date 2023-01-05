@@ -1,0 +1,70 @@
+{% extends "basepage.html" %}
+
+{% block pagetitle %}
+關於我們
+{% endblock %}
+
+{% block css %}
+<style>
+		
+.main1{
+	width: 100%;
+	height: 70%;
+}
+
+.main2{
+
+	clear: both;
+	width: 100%;
+	display: grid;
+}
+
+.info1{
+	padding-top: 50px;
+	float: left;
+	width: 50%;
+
+
+}
+
+.info1 img{
+
+	width: 100%;
+}
+.info2{
+	margin-top: 50px;
+	margin-right: 10%;
+	float: right;
+	width: 30%;
+	height: 300px;
+	padding: 2%;
+	font-weight: 500;
+
+}
+
+</style>
+{% endblock%}
+
+{% block maincontent %}
+
+	<div style="margin-top: 50px;"></div>
+	<div style="background-color: #14FDFE; width: 60%; margin:0 auto">
+		<span style="padding-left: 20%; font-size: 48px ; font-weight: 500; color:#E66812">Cheerleaders in CPBL</span>
+	</div>
+	<div class="main1">
+		<div class="info1">
+			<img src="/static/images/passion1.jpg">
+		</div>
+
+
+		<div class="info2" style="border:solid 2px #E66812; border-radius: 20px;">
+			<span style="padding-top: 30%;">熱情姊妹（英語：Passion Sisters）為T1聯盟新北中信特攻專屬啦啦隊及中華職棒中信兄弟專屬啦啦隊，前身為中華職棒兄弟象的專屬啦啦隊象漾女孩，成員皆為宏將多利安的模特兒。2014年3月24日，熱情姊妹成軍[5]，成立時成員為8人，2017年球季起人數擴編到16人。2022年球季前開訓記者會公布成員新增人數來到團隊歷史上最多17人。</span>
+		</div>
+	</div>
+
+
+
+
+<div style="clear:both;"></div>
+
+{% endblock %}

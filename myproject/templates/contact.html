@@ -1,0 +1,51 @@
+{% extends "basepage.html" %}
+
+{% block pagetitle %}
+聯絡我們
+{% endblock %}
+
+{% block css %}
+<link href="/static/css/contact.css" rel="stylesheet" >
+{% endblock%}
+
+{% block maincontent %}
+
+<div style="margin-top: 100px;"></div>
+
+
+
+<div id="message">
+	<div id="login-form-wrap">
+	<h2 class="subject">Contact Us</h2>
+
+	<p style="color:#ff0000">{{msg}}</p>
+
+	<form id="login-form" action="" method="post">
+		{% csrf_token %}
+		<p>
+			<input type="text" name="cuName" placeholder="請輸入姓名" required /><i class="validation"><span></span><span></span></i>
+		</p>
+
+		<p>
+			<input type="email" name="email" placeholder="請輸入Email" required /><i class="validation"><span></span><span></span></i>
+		</p>
+
+		<p>
+			<input type="text" name="title" placeholder="請輸入標題" required /><i class="validation"><span></span><span></span></i>
+		</p>
+
+		<p>
+			<textarea type="text" name="content" placeholder="請輸入內容" style="width:320px;height:300px; font-size: 18px;" required></textarea> 
+		</p>
+
+		<p>
+			 <input type="submit" value="送出" style="margin-bottom: 20px;" />
+		</p>
+		
+	</form>
+	</div>
+</div>
+
+<div style="float: left;padding-bottom:100px;"></div>
+
+{% endblock %}

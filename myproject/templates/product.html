@@ -1,0 +1,69 @@
+{% extends "basepage.html" %}
+
+{% block pagetitle %}
+產品頁
+{% endblock %}
+
+{% block css %}
+<link href="/static/css/product.css" rel="stylesheet" >
+
+<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous">
+</script>
+{% endblock%}
+
+{% block maincontent %}
+
+	<div class="searchArea" style="height:150px; margin:10px; ">
+		
+		<form action="" method="get" style=" width:60%; height:180px; padding-top: 5%;">
+
+			<label for="p" style="font-size:20px; color: #E66812; font-weight: 600;">產品關鍵字: </label>
+			<input type="text" name="p" id="p"/>
+
+			<p></p>
+
+			<label for="S" style="font-size:20px; color: #E66812; font-weight: 600;">價格區間: </label>
+			<input type="text" name="priceS" id="S"/> ~ <input type="text" name="priceE" />
+
+			<p></p>
+
+			<button type="reset"><i class="fas fa-sync" style="font-size: 36px; margin: 5px;"></i></button>
+
+			<button type="submit"><i class="fas fa-search" style="font-size: 36px; margin: 5px;"></i></button>
+		</form>
+	</div>
+
+	<div style="margin-top: 100px;"></div>
+
+	<div class="productArea">
+		{% for row in allgoods %}
+			<div class="info">
+				<a href="#">
+					<img src="{{row.photo}}">
+				</a>
+				<p id="goodsname" style="font-size:15px; height:50px; padding-bottom: 50px;">{{row.name}}</p>
+				<span style="color:red;">${{row.price}}</span>
+				<button><a href="/add_to_cart/add/{{row.id}}">BUY</a></button>
+				
+			</div>
+
+		
+		{% endfor %}
+	</div>
+	<div style="clear:both;"></div>
+	<div style="float:left; height:60px; padding-top: 100px; padding-left: 45%;">
+		{% if allgoods.has_previous %}
+			<a href="?page={{allgoods.previous_page_number}}&p={{keyword}}&priceS={{priceS}}&priceE={{priceE}}">&laquo; 上一頁</a>
+		{% endif %}
+
+		{% if allgoods.has_next %}
+			<a href="?page={{allgoods.next_page_number}}&p={{keyword}}&priceS={{priceS}}&priceE={{priceE}}">下一頁 &raquo;</a>
+		{% endif %}
+		
+
+	</div>
+		
+		
+		
+	<div style="clear:both;"></div>
+{% endblock %}

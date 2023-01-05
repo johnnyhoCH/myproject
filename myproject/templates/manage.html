@@ -1,0 +1,44 @@
+{% extends "basepage.html" %}
+
+{% block pagetitle %}
+會員管理
+{% endblock %}
+
+{% block css %}
+<link href="/static/css/contact.css" rel="stylesheet" >
+{% endblock%}
+
+{% block maincontent %}
+
+	<div style="margin-top: 100px;"></div>
+
+	<div id="message">
+		<div id="login-form-wrap">
+		<h2 class="subject">密碼變更</h2>
+		<span style="color:red;">{{msg}}</span>
+		<form id="login-form" action="" method="post">
+			{% csrf_token %}
+			
+			<p>
+				<input type="password" name="oldpwd" placeholder="請輸入舊密碼" required />
+			</p>
+
+			<p>
+				<input type="password" name="newpwd" placeholder="請輸入新密碼" required />
+			</p>
+
+			
+
+			<p>
+				<input type="submit" value="Submit" style="margin-bottom: 20px;">
+			</p>
+
+
+		</form>
+	</div>
+	</div>
+
+
+<div style="padding-bottom:100px; float:left;"></div>
+
+{% endblock %}

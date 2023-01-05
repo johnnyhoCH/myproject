@@ -1,0 +1,56 @@
+{% extends "basepage.html" %}
+
+{% block pagetitle %}
+NEWS
+{% endblock %}
+
+{% block css %}
+<link href="/static/css/news.css" rel="stylesheet" >
+{% endblock%}
+
+{% block maincontent %}
+
+	<div style="margin-top: 100px;"></div>
+	
+	<div id="login-form-wrap">
+		<form action="" method="post" id="login-form">
+			{% csrf_token %}
+			<h2>標題關鍵字</h2>
+			<p>
+				<input type="text" name="p" id="p" placeholder="請輸入" />
+			</p>
+
+			<p>
+				<input type="submit" value="Submit" />
+			</p>
+			
+		</form>
+	</div>
+	</div>
+
+	
+
+	<div class="hot">
+		
+		{% for item in data %}
+		<div class="hotbar">
+			<div class="left">
+				<a target="view_window" href="{{item.links}}" ><img src="{{item.photos}}"></a>
+			</div>
+
+			<div class="right">
+				<h1 style="color: red;">{{item.title}}</h1>
+				<p>{{item.create_date}}</p>
+				<hr>
+			</div>
+		</div>
+
+		{% endfor %}
+	</div>
+
+
+
+
+
+
+{% endblock %}

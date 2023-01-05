@@ -1,0 +1,23 @@
+.cheersarea{
+
+	clear: both;
+	padding: 2%;
+}
+
+.cheersImg{
+	float: left;
+	padding-left: 10%;
+}
+
+.cheersInfo{
+
+	width: 20%;
+    float: left;
+    margin-left: 10%;
+    margin-top: 10%;
+    border: solid 2px #E66812;
+    border-radius: 17px;
+    padding-left: 5%;
+    font-size: 20px;
+    font-weight: 400;
+}

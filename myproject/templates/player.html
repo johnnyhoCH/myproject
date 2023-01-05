@@ -1,0 +1,50 @@
+{% extends "basepage.html" %}
+
+{% block pagetitle %}
+球員
+{% endblock %}
+
+{% block css %}
+<link href="/static/css/player.css" rel="stylesheet" >
+{% endblock%}
+
+{% block maincontent %}
+
+	<div style="margin-top: 50px;"></div>
+	
+	<h1>啦啦隊介紹</h1>
+	{% for item in playerlist %}
+	
+	<div class="cheersarea">
+	
+
+		<div class="cheersImg">
+			<img src="{{item.photos}}">	
+		</div>
+
+		<div class="cheersInfo">
+			<p>姓名:{{item.name}}</p>
+			<p>星座:{{item.zodiac}}</p>
+			<p>身高:{{item.height}}</p>
+			<p>體重:{{item.weight}}</p>
+		</div>	
+	{% endfor %}
+	</div>
+
+	<div style="clear:both; height:60px; padding-top: 60px; text-align: center;">
+		{% if playerlist.has_previous %}
+
+			<a href="?page={{playerlist.previous_page_number}}">&laquo;上一頁</a>
+
+		{% endif %}
+
+		{% if playerlist.has_next %}
+
+			<a href="?page={{playerlist.next_page_number}}">下一頁&raquo;</a>
+
+		{% endif %}
+
+	</div>
+	<div style="clear:both; height:100px;"></div>
+	
+{% endblock %}
